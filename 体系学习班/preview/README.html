@@ -1,0 +1,229 @@
+<html>
+  <head>
+	  <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <title>i5ting_ztree_toc:</title>
+		<link href="toc/style/github-bf51422f4bb36427d391e4b75a1daa083c2d840e.css" media="all" rel="stylesheet" type="text/css"/>
+		<link href="toc/style/github2-d731afd4f624c99a4b19ad69f3083cd6d02b81d5.css" media="all" rel="stylesheet" type="text/css"/>
+		<link href="toc/css/zTreeStyle/zTreeStyle.css" media="all" rel="stylesheet" type="text/css"/>
+	  <style>
+		pre {
+		    counter-reset: line-numbering;
+		    border: solid 1px #d9d9d9;
+		    border-radius: 0;
+		    background: #fff;
+		    padding: 0;
+		    line-height: 23px;
+		    margin-bottom: 30px;
+		    white-space: pre;
+		    overflow-x: auto;
+		    word-break: inherit;
+		    word-wrap: inherit;
+		}
+
+		pre a::before {
+		  content: counter(line-numbering);
+		  counter-increment: line-numbering;
+		  padding-right: 1em; /* space after numbers */
+		  width: 25px;
+		  text-align: right;
+		  opacity: 0.7;
+		  display: inline-block;
+		  color: #aaa;
+		  background: #eee;
+		  margin-right: 16px;
+		  padding: 2px 10px;
+		  font-size: 13px;
+		  -webkit-touch-callout: none;
+		  -webkit-user-select: none;
+		  -khtml-user-select: none;
+		  -moz-user-select: none;
+		  -ms-user-select: none;
+		  user-select: none;
+		}
+
+		pre a:first-of-type::before {
+		  padding-top: 10px;
+		}
+
+		pre a:last-of-type::before {
+		  padding-bottom: 10px;
+		}
+
+		pre a:only-of-type::before {
+		  padding: 10px;
+		}
+
+		.highlight { background-color: #ffffcc } /* RIGHT */
+		</style>
+  </head>
+  <body>
+	  <div>
+				<div style='width:25%;'>
+						<ul id="tree" class="ztree" style='width:100%'>
+
+						</ul>
+				</div>
+        <div id='readme' style='width:70%;margin-left:20%;'>
+          	<article class='markdown-body'>
+            	<h2 id="-">二、异或</h2>
+<ul>
+<li>异或：相同为0，不相同为1</li>
+<li>可以理解为无进位相加</li>
+<li>0 ^ N = N, N ^ N = 0,  a ^ b = b ^ a,  a ^ b ^  c = a ^ (b ^ c)</li>
+</ul>
+<h3 id="1-">1、不用额外变量交换两个数</h3>
+<ul>
+<li>a = a ^ b</li>
+<li>b = a ^ b = (a ^ b) ^ b = a</li>
+<li>a = a ^ b = (a ^ b) ^ (a) = b  </li>
+<li>连续异或三次即可（注意数组相同位置不能采用这种方式交换元素，如果位置相同第一次异或就会把原位置变为0，后续结果全为0）</li>
+<li>异或运算效率较高</li>
+</ul>
+<pre><code class="lang-java">package class01;
+
+/**
+ * @author duwei
+ * @version 1.0.0
+ * @create 2022-05-22 20:23
+ * @description 不使用额外变量交换两个数，要保证数组交换元素时上游调用不是同一位置
+ */
+public class Swap {
+    public static void main(String[] args) {
+        int a = 10;
+        int b = 20;
+        a = a ^ b;
+        b = a ^ b;
+        a = a ^ b;
+        System.out.format(&quot;a = %d,b = %d&quot;,a,b);
+    }
+}
+
+</code></pre>
+<h3 id="2-o-n-o-1-">2、找出数组中出现了奇数次的元素（其余都偶数次）,时间复杂度$$O(N)$$，空间复杂度$$O(1)$$</h3>
+<ul>
+<li>全部异或即可，偶数次的元素会两两异或为0</li>
+</ul>
+<pre><code class="lang-java">package class02;
+
+/**
+ * @author duwei
+ * @version 1.0.0
+ * @create 2022-05-22 20:31
+ * @description 找出数组中出现了奇数次的元素（其余都偶数次）
+ */
+public class Code01_EvenTimesOddTimes {
+
+    /**
+     * 打印数组中出现次数为奇数次的元素，数组为null返回系统最大
+     * @param arr
+     * @return
+     */
+    public static int printOddTimesNum(int[] arr){
+        if (arr == null || arr.length == 0){
+            return Integer.MAX_VALUE;
+        }
+
+        int eor = 0;
+        for (int num : arr){
+            eor ^= num;
+        }
+        return eor;
+    }
+}
+</code></pre>
+<h3 id="3-o-n-o-1-">3、一个数组中两个数出现了奇数次，其余出现了偶数次，找到这两个数，时间复杂度$$O(N)$$，空间复杂度$$O(1)$$</h3>
+<ul>
+<li>首先将全部元素异或一次，即结果为a ^ b</li>
+<li>找到a ^ b 结果中最右侧的1，即a 或 b在这一位不同（只要a 和 b在该位不同即可，拿哪一位的1就行）</li>
+<li>用这个1将所有元素分为两类，即该位为1和该位不为1</li>
+<li>然后将分成的两类分别异或就可得到结果</li>
+</ul>
+<pre><code class="lang-java">package class02;
+
+/**
+ * @author duwei
+ * @version 1.0.0
+ * @create 2022-05-22 20:54
+ * @description 一个数组中两个数出现了奇数次，其余出现了偶数次，找到这两个数
+ */
+public class Code02_EvenTimesTwoOddTimes {
+    public static int[] printTwoOddTimesNum(int[] arr){
+        int eor = 0;
+        for (int num : arr){
+            eor ^= num;
+        }
+
+        //找到分割不同数最右边的1
+        int right = eor &amp; (~eor + 1);
+
+        int one = 0;
+        for (int num : arr){
+            if ((num &amp; right) != 0){
+                one ^= num;
+            }
+        }
+
+        int two = one ^ eor;
+        return new int[]{one,two};
+    }
+}
+</code></pre>
+<h3 id="4-k-m-k-m-m-1-o-1-hash-o-n-">4、一个数组中一种数出现了K次，其他都出现了M次，其中$$K &lt; M且 M &gt; 1$$，要求额外空间复杂度$$O(1)$$，即不能使用Hash表，时间复杂度$$O(N)$$</h3>
+<ul>
+<li>int类型可以用32位比特表式，准备一个32长度的数组，分别储存所有数字第i位1出现次数</li>
+<li>那么数组中元素最终只有3种结果，0、p <em> M（p位一个常数）、p </em> M + K</li>
+<li>遍历数组对每个元素取余，不为0的话就说明出现K次的数在该位为1，记录下来即可</li>
+</ul>
+<pre><code class="lang-java">package class02;
+
+/**
+ * @author duwei
+ * @version 1.0.0
+ * @create 2022-05-22 20:44
+ * @description TODO
+ */
+public class Code03_KM {
+    public static int onlyKTimes(int[] arr, int k, int m) {
+        int[] counts = new int[32];
+
+        //统计所有数字对应bit位的次数
+        for (int num : arr) {
+            for (int i = 0; i &lt; 32; i++) {
+                counts[i] += (num &gt;&gt; i) &amp; 1;
+            }
+        }
+
+        //遍历数组找到出现k次的元素
+        int result = 0;
+        for (int i = 0; i &lt; 32; i++) {
+            if ((counts[i] % m) != 0) {
+                result |= (1 &lt;&lt; i);
+            }
+        }
+        return result;
+    }
+}
+
+</code></pre>
+
+          	</article>
+        </div>
+		</div>
+  </body>
+</html>
+<script type="text/javascript" src="toc/js/jquery-1.4.4.min.js"></script>
+<script type="text/javascript" src="toc/js/jquery.ztree.all-3.5.min.js"></script>
+<script type="text/javascript" src="toc/js/ztree_toc.js"></script>
+<script type="text/javascript" src="toc_conf.js"></script>
+
+<SCRIPT type="text/javascript" >
+<!--
+$(document).ready(function(){
+    var css_conf = eval(markdown_panel_style);
+    $('#readme').css(css_conf)
+    
+    var conf = eval(jquery_ztree_toc_opts);
+		$('#tree').ztree_toc(conf);
+});
+//-->
+</SCRIPT>
