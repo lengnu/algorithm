@@ -5826,6 +5826,533 @@ public class Code04_BestArrange {
 
 但如果先把长度60的金条分成30和30，花费60;再把长度30金条分成10和20， 花费30;一共花费90铜板。 输入一个数组，返回分割的最小代价。 
 
+- 转化一个思路，合并金条的最小代价。每合并两个金条，付出合并长度的代价，知道最终合成一个
+- 思路：哈夫曼编码，选取最小的两个合并，将合并后的金条放入原来的金条数组中。在选取最小的两个，依此循环，知道最终合并为max一个
+
+```java
+package class14;
+
+import java.util.Arrays;
+import java.util.PriorityQueue;
+
+
+/**
+ * @BelongsProject: Algorithm-System
+ * @BelongsPackage: class14
+ * @Author: duwei
+ * @Date: 2022/7/4 18:30
+ * @Description: 分割金条的最小代价
+ */
+public class Code02_LessMoneySplitGold {
+    /**
+     * 哈夫曼编码求分割金条的最小代价
+     *
+     * @param costs
+     * @return
+     */
+    public static int minCost(int[] costs) {
+        if (costs == null || costs.length == 0) {
+            return 0;
+        }
+        PriorityQueue<Integer> heap = new PriorityQueue<>();
+        for (int cost : costs) {
+            heap.add(cost);
+        }
+        int totalCost = 0;
+        while (heap.size() > 1) {
+            int cur = heap.poll() + heap.poll();
+            totalCost += cur;
+            heap.add(cur);
+        }
+        return totalCost;
+    }
+
+
+    /**
+     * 暴力递归求分割金条最小代价，两两合并，枚举所有可能
+     *
+     * @param costs
+     * @return
+     */
+    public static int minCost1(int[] costs) {
+        if (costs == null || costs.length == 0) {
+            return 0;
+        }
+        return process(costs, 0);
+    }
+
+    // 等待合并的数都在arr里，pre之前的合并行为产生了多少总代价
+    // arr中只剩一个数字的时候，停止合并，返回最小的总代价
+    public static int process(int[] arr, int pre) {
+        if (arr.length == 1) {
+            return pre;
+        }
+        int ans = Integer.MAX_VALUE;
+        for (int i = 0; i < arr.length; i++) {
+            for (int j = i + 1; j < arr.length; j++) {
+                ans = Math.min(ans, process(copyAndMergeTwo(arr, i, j), pre + arr[i] + arr[j]));
+            }
+        }
+        return ans;
+    }
+
+    public static int[] copyAndMergeTwo(int[] arr, int i, int j) {
+        int[] ans = new int[arr.length - 1];
+        int ansi = 0;
+        for (int arri = 0; arri < arr.length; arri++) {
+            if (arri != i && arri != j) {
+                ans[ansi++] = arr[arri];
+            }
+        }
+        ans[ansi] = arr[i] + arr[j];
+        return ans;
+    }
+
+
+    public static int[] generateRandomArray(int maxSize, int maxValue) {
+        int size = (int) (Math.random() * ( maxSize)) + 1;
+        int[] arr = new int[size];
+        for (int i = 0; i < size; i++) {
+            arr[i] = (int) (Math.random() * (1 + maxValue));
+        }
+        return arr;
+    }
+
+    public static void main(String[] args) {
+        int times = 10;
+        int maxSize = 10;
+        int maxValue = 500;
+        System.out.println("start...");
+        for (int i = 0; i < times; i++) {
+            int[] costs = generateRandomArray(maxSize, maxValue);
+            if (minCost(costs) != minCost1(costs)) {
+                System.out.println("出错了");
+                System.exit(1);
+            }
+        }
+        System.out.println("finish...");
+    }
+
+}
+
+```
+
+### 4、点亮灯的最小代价
+
+给定一个字符串str，只由‘X’和‘.’两种字符构成。
+
+‘X’表示墙，不能放灯，也不需要点亮
+
+‘.’表示居民点，可以放灯，需要点亮
+
+如果灯放在i位置，可以让i-1，i和i+1三个位置被点亮
+
+返回如果点亮str中所有需要点亮的位置，至少需要几盏灯
+
+- 假设现在来到i位置；
+
+1. i 位置为墙，直接跳到i+1；
+2. i位置为居民点：
+   - 如果i+1位置为墙，那么i位置放灯，来到i+2位置；
+   - 否则i+1位置放灯，直接来到i+3位置（无所谓i+2位置为墙还是灯都可以）
+
+```java
+package class14;
+
+/**
+ * @BelongsProject: Algorithm-System
+ * @BelongsPackage: class14
+ * @Author: duwei
+ * @Date: 2022/7/4 19:05
+ * @Description: 点亮等的最小代价
+ */
+public class Code01_Light {
+    public static int minCountLights1(String road){
+        if (road == null || road.length() == 0){
+            return 0;
+        }
+        char[] str = road.toCharArray();
+        int index = 0;
+        int count = 0;
+        while (index < str.length){
+            if (str[index] == 'X'){
+                index++;
+            }else {
+                count++;
+                if (index + 1 == str.length){
+                    break;
+                }
+                if (str[index + 1] == 'X'){
+                    index += 2;
+                }else {
+                    index += 3;
+                }
+            }
+        }
+        return count;
+    }
+
+    public static int minCountLights2(String road){
+        char[] str = road.toCharArray();
+        int i = 0;
+        int light = 0;
+        while (i < str.length) {
+            if (str[i] == 'X') {
+                i++;
+            } else {
+                light++;
+                if (i + 1 == str.length) {
+                    break;
+                } else { // 有i位置 i+ 1 X .
+                    if (str[i + 1] == 'X') {
+                        i = i + 2;
+                    } else {
+                        i = i + 3;
+                    }
+                }
+            }
+        }
+        return light;
+    }
+
+    public static String generateRoad(int maxLength){
+        int len = (int) (Math.random() * maxLength) + 1;
+        StringBuilder builder = new StringBuilder();
+        for (int i = 0; i < len; i++) {
+            if (Math.random() < 0.5){
+                builder.append("X");
+            }else {
+                builder.append(".");
+            }
+        }
+        return builder.toString();
+    }
+
+    public static void main(String[] args) {
+        int times = 10000;
+        int maxLength = 100;
+        System.out.println("start...");
+        for (int i = 0; i < times; i++) {
+            String road = generateRoad(maxLength);
+            if (minCountLights1(road) != minCountLights2(road)){
+                System.out.println("出错了");
+                System.exit(1);
+            }
+        }
+        System.out.println("finish...");
+    }
+
+
+
+}
+
+```
+
+### 5、获得的最大收益
+
+输入: 正数数组costs、正数数组profits、正数K、正数M
+	costs[i]表示i号项目的花费
+
+profits[i]表示i号项目在扣除花费之后还能挣到的钱(利润)
+
+K表示你只能串行的最多做k个项目
+
+M表示你初始的资金
+
+说明: 每做完一个项目，马上获得的收益，可以支持你去做下一个项目。不能并行的做项目。
+
+输出：你最后获得的最大钱数。 
+
+- 将cost和profits组成对象Program，按照cost放入小根堆
+- 每次从小根堆中弹出当前可用做的项目按照profit放入大根堆，然后选取大根堆顶的项目；
+- 将能做的项目做完
+
+```java
+package class14;
+
+import java.util.Comparator;
+import java.util.PriorityQueue;
+
+/**
+ * @BelongsProject: Algorithm-System
+ * @BelongsPackage: class14
+ * @Author: duwei
+ * @Date: 2022/7/4 19:17
+ * @Description: 返回最大收益
+ */
+public class Code03_IPO {
+
+    public static class Program {
+        int cost;
+        int profit;
+
+        public Program(int cost, int profit) {
+            this.cost = cost;
+            this.profit = profit;
+        }
+    }
+
+    /**
+     * 返回能做项目的最大收益
+     *
+     * @param costs   项目花费
+     * @param profits 项目利润
+     * @param k       能做项目数
+     * @param m       初始资金
+     * @return
+     */
+    public static int maxProfit(int[] costs, int[] profits, int k, int m) {
+        if (costs == null || costs.length == 0 || profits == null || profits.length == 0 || k <= 0 || (costs.length != profits.length)) {
+            return 0;
+        }
+        int N = costs.length;
+        Program[] programs = new Program[N];
+        for (int i = 0; i < N; i++) {
+            programs[i] = new Program(costs[i], profits[i]);
+        }
+        PriorityQueue<Program> minCostQueue = new PriorityQueue<>(Comparator.comparingInt(o -> o.cost));
+        PriorityQueue<Program> maxProfitQueue = new PriorityQueue<>((o1, o2) -> o2.profit - o1.profit);
+        int totalProfit = m;
+        for (int i = 0; i < k; i++) {
+            while (!minCostQueue.isEmpty() && minCostQueue.peek().cost <= totalProfit) {
+                maxProfitQueue.add(minCostQueue.poll());
+            }
+            //如果该堆内为null，则表明一个也做不了或者全部做完了
+            if (maxProfitQueue.isEmpty()) {
+                return totalProfit;
+            }
+            totalProfit += maxProfitQueue.poll().profit;
+        }
+        return totalProfit;
+    }
+    
+}
+
+```
+
+## 十二、并查集
+
+- 概述
+
+1)有若干个样本a、b、c、d…类型假设是V
+
+2)在并查集中一开始认为每个样本都在单独的集合里
+
+3)用户可以在任何时候调用如下两个方法：
+
+​    boolean isSameSet(V x, V y) : 查询样本x和样本y是否属于一个集合
+
+​    void union(V x, V y) : 把x和y各自所在集合的所有样本合并成一个集合
+
+4） isSameSet和union方法的代价越低越好
+
+- 说明
+
+1）每个节点都有一条往上指的指针
+
+2）节点a往上找到的头节点，叫做a所在集合的代表节点
+
+3）查询x和y是否属于同一个集合，就是看看找到的代表节点是不是一个
+
+4）把x和y各自所在集合的所有点合并成一个集合，只需要小集合的代表点挂在大集合的代表点的下方即可
+
+- 优化
+
+1）节点往上找代表点的过程，把沿途的链变成扁平的
+
+2）小集合挂在大集合的下面
+
+3）如果方法调用很频繁，那么单次调用的代价为O(1)，两个方法都如此
+
+- 应用
+
+1）解决两大块区域的合并问题
+
+2）常用图等领域中
+
+### 1、基于HashMap的并查集
+
+```java
+package class14;
+
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Stack;
+import java.util.concurrent.ConcurrentHashMap;
+
+/**
+ * @BelongsProject: Algorithm-System
+ * @BelongsPackage: class14
+ * @Author: duwei
+ * @Date: 2022/7/4 19:30
+ * @Description: 基于hashMap的并查集
+ */
+public class Code05_UnionFind {
+    //每个值都是一个节点，包装了一下，因此可以放基础类型
+    private static class Node<V>{
+        private V value;
+
+        public Node(V value) {
+            this.value = value;
+        }
+    }
+    public static class UnionFind<V>{
+        //根据值V找到对于的节点
+        private Map<V,Node<V>> nodes;
+        //记录父亲节点
+        private Map<Node<V>,Node<V>> parents;
+        //记录集合大小，只记录每个代表节点的
+        private Map<Node<V>,Integer> sizeMap;
+
+        public UnionFind(V[] values){
+            nodes = new HashMap<>();
+            parents = new HashMap<>();
+            sizeMap = new HashMap<>();
+            for (int i = 0; i < values.length; i++) {
+                Node<V> node = new Node<>(values[i]);
+                nodes.put(values[i],node);
+                parents.put(node,node);
+                sizeMap.put(node,1);
+            }
+        }
+
+        /**
+         * 判断两个元素x和y是否在同一集合
+         * @param x
+         * @param y
+         * @return
+         */
+        public  boolean isSameSet(V x,V y){
+            return find(x) == find(y);
+        }
+
+        private Node<V> find(V x){
+            Node<V> node = nodes.get(x);
+            Stack<Node> stack = new Stack<>();
+            while (node != parents.get(node)){
+                stack.push(node);
+                node = parents.get(node);
+            }
+            //优化，将沿途所有节点都挂在代表节点上
+            while (!stack.isEmpty()){
+                parents.put(stack.pop(),node);
+            }
+            return node;
+        }
+
+        public void union(V a,V b){
+            Node<V> aHead = find(a);
+            Node<V> bHead = find(b);
+            //不在一个集合
+            if (aHead != bHead){
+                int aSetSize = sizeMap.get(aHead);
+                int bSetSize = sizeMap.get(bHead);
+                //集合size较大的赋予xNode
+                Node<V> big = aSetSize >= bSetSize ? aHead : bHead;
+                Node<V> small = aSetSize >= bSetSize ? bHead : aHead;
+                parents.put(small,big);
+                sizeMap.put(big,aSetSize + bSetSize);
+                sizeMap.remove(small);
+            }
+        }
+
+        public int sets(){
+            return sizeMap.size();
+        }
+    }
+
+}
+
+```
+
+### 2、朋友圈
+
+[547. 省份数量 - 力扣（LeetCode）](https://leetcode.cn/problems/number-of-provinces/)
+
+有 n 个城市，其中一些彼此相连，另一些没有相连。如果城市 a 与城市 b 直接相连，且城市 b 与城市 c 直接相连，那么城市 a 与城市 c 间接相连。
+
+省份 是一组直接或间接相连的城市，组内不含其他没有相连的城市。
+
+给你一个 n x n 的矩阵 isConnected ，其中 isConnected[i][j] = 1 表示第 i 个城市和第 j 个城市直接相连，而 isConnected[i][j] = 0 表示二者不直接相连。返回矩阵中 省份 的数量。
+
+- 用并查集，将相连的城市合并，返回最终的集合数量即可
+
+```java
+package class15;
+
+/**
+ * @BelongsProject: Algorithm-System
+ * @BelongsPackage: class15
+ * @Author: duwei
+ * @Date: 2022/7/4 19:54
+ * @Description: 朋友圈
+ */
+public class Code01_FriendCircles {
+    public static int findCircleNum(int[][] isConnected) {
+        UnionFind unionFind = new UnionFind(isConnected.length);
+        int N = isConnected.length;
+        for (int i = 0; i < N; i++) {
+            for (int j = i + 1; j < N; j++) {
+                if (isConnected[i][j] == 1){
+                    unionFind.union(i,j);
+                }
+            }
+        }
+        return unionFind.sets;
+    }
+    private static class UnionFind{
+        //以下表代表第i个元素
+        private int[] parents;
+        private int[] help;
+        private int[] size;
+        private int sets;
+
+        public UnionFind(int N) {
+            parents = new int[N];
+            help = new int[N];
+            size = new int[N];
+            for (int i = 0; i < N; i++) {
+                size[i] = 1;
+                parents[i] = i;
+            }
+            sets = N;
+        }
+
+        public int  findFather(int i){
+            int index = 0;
+            while (i != parents[i]){
+                help[index++] = i;
+                i = parents[i];
+            }
+            for (int j = 0; j < index; j++) {
+                parents[help[j]] = i;
+            }
+            return i;
+        }
+
+        public void union(int i,int j){
+            int iHead = findFather(i);
+            int jHead = findFather(j);
+            if (iHead != jHead){
+                if (size[iHead] >= size[jHead]){
+                    size[iHead] += size[jHead];
+                    parents[jHead] = iHead;
+                }else {
+                    size[jHead] += size[iHead];
+                    size[iHead] = jHead;
+                }
+                sets--;
+            }
+        }
+
+        public int sets(){
+            return this.sets;
+        }
+    }
+}
+
+```
+
 
 
 ## 二十、有序表

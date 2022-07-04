@@ -5,36 +5,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="576dc67d-b2e7-48a5-8655-ac945e701d4a" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/class09/Code01_LinkedListMid.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/class09/Code02_IsPalindromeList.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/class09/Code03_LinkedSort.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/class09/Code04_LinkedListRandomCopy.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/class09/Code05_FindFirstIntersectNode.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/class10/Code01_RecursiveTravesalBinaryTree.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/class10/Code02_RecursiveUnTravesalBinaryTree.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/class10/Code03_LevelTraversalBinaryTree.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/class10/Code04_SerialAndReconstructTree.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/class10/Code05_EncodeNaryTreeToBinaryTree.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/class10/Code06_TreeMaxWidth.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/class10/Code07_GetSuccessorNode.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/class10/Code08_PaperFolding.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/class10/TreeNode.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/class12/Code01_IsCBT.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/class12/Code02_IsBST.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/class12/Code03_IsBalanced.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/class12/Code04_IsFull.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/class12/Code05_MaxSunBSTSize.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/class12/Code06_MaxDistance.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/class13/Code01_IsCBT.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/class13/Code02_LowestAncestor.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/class13/Code03_MaxHappy.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/class13/Code04_MaxSubSBTRoot.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/class13/Code05_LowestLexicography.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/class14/Code04_BestArrange.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/class35/Code01_AVLTreeMap.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/class36/Code01_SizeBalanceTreeMap.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../README.md" beforeDir="false" afterPath="$PROJECT_DIR$/../README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/class14/Code01_Light.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/class14/Code02_LessMoneySplitGold.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/class14/Code03_IPO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/class14/Code05_UnionFind.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/class15/Code01_FriendCircles.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/体系学习班/class14/Code01_BestArrange.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/体系学习班/test/SemaPhoreTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/体系学习班/test/SemaPhoreTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/体系学习班/test/Ticks.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/体系学习班/test/Ticks.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/体系学习班/test/readwrite/MyCache.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/体系学习班/test/readwrite/MyCache.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/体系学习班.iml" beforeDir="false" afterPath="$PROJECT_DIR$/体系学习班.iml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -61,11 +41,6 @@
       <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
     </file-type-list>
   </component>
-  <component name="HighlightingSettingsPerFile">
-    <setting file="jar://C:/Program Files/Java/jdk1.8.0_251/src.zip!/java/util/concurrent/TimeUnit.java" root0="SKIP_INSPECTION" />
-    <setting file="jar://C:/Program Files/Java/jdk1.8.0_251/src.zip!/java/util/concurrent/locks/Lock.java" root0="SKIP_INSPECTION" />
-    <setting file="jar://C:/Program Files/Java/jdk1.8.0_251/src.zip!/java/util/concurrent/locks/ReentrantLock.java" root0="SKIP_INSPECTION" />
-  </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
@@ -78,7 +53,7 @@
     </option>
   </component>
   <component name="ProblemsViewState">
-    <option name="selectedTabId" value="ProjectErrors" />
+    <option name="selectedTabId" value="CurrentFile" />
   </component>
   <component name="ProjectId" id="29WD9l6ioxw4w9LcPBOw5dmIIgJ" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
@@ -94,13 +69,13 @@
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="settings.editor.selected.configurable" value="editor.preferences.fonts.default" />
   </component>
-  <component name="RunManager" selected="Application.Code05_LowestLexicography">
-    <configuration name="Code01_AVLTreeMap" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="class35.Code01_AVLTreeMap" />
+  <component name="RunManager" selected="Application.Code05_UnionFind">
+    <configuration name="Code01_IsCBT (1)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="class13.Code01_IsCBT" />
       <module name="体系学习班" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="class35.*" />
+          <option name="PATTERN" value="class13.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -108,12 +83,25 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Code01_IsCBT (1)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="class13.Code01_IsCBT" />
+    <configuration name="Code01_Light" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="class14.Code01_Light" />
       <module name="体系学习班" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="class13.*" />
+          <option name="PATTERN" value="class14.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Code02_LessMoneySplitGold" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="class14.Code02_LessMoneySplitGold" />
+      <module name="体系学习班" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="class14.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -134,25 +122,12 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Code05_MaxSunBSTSize" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="class12.Code05_MaxSunBSTSize" />
+    <configuration name="Code05_UnionFind" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="class14.Code05_UnionFind" />
       <module name="体系学习班" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="class12.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="Code06_MaxDistance" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="class12.Code06_MaxDistance" />
-      <module name="体系学习班" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="class12.*" />
+          <option name="PATTERN" value="class14.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -162,11 +137,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.Code05_UnionFind" />
+        <item itemvalue="Application.Code01_Light" />
+        <item itemvalue="Application.Code02_LessMoneySplitGold" />
         <item itemvalue="Application.Code05_LowestLexicography" />
         <item itemvalue="Application.Code01_IsCBT (1)" />
-        <item itemvalue="Application.Code01_AVLTreeMap" />
-        <item itemvalue="Application.Code06_MaxDistance" />
-        <item itemvalue="Application.Code05_MaxSunBSTSize" />
       </list>
     </recent_temporary>
   </component>
@@ -215,6 +190,9 @@
       <workItem from="1656491610320" duration="7852000" />
       <workItem from="1656595275681" duration="3075000" />
       <workItem from="1656728881741" duration="11947000" />
+      <workItem from="1656918276275" duration="19000" />
+      <workItem from="1656918437186" duration="18000" />
+      <workItem from="1656929944222" duration="6594000" />
     </task>
     <servers />
   </component>
