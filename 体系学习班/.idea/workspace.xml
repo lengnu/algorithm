@@ -4,7 +4,38 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="576dc67d-b2e7-48a5-8655-ac945e701d4a" name="Changes" comment="" />
+    <list default="true" id="576dc67d-b2e7-48a5-8655-ac945e701d4a" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/class09/Code01_LinkedListMid.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/class09/Code02_IsPalindromeList.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/class09/Code03_LinkedSort.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/class09/Code04_LinkedListRandomCopy.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/class09/Code05_FindFirstIntersectNode.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/class10/Code01_RecursiveTravesalBinaryTree.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/class10/Code02_RecursiveUnTravesalBinaryTree.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/class10/Code03_LevelTraversalBinaryTree.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/class10/Code04_SerialAndReconstructTree.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/class10/Code05_EncodeNaryTreeToBinaryTree.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/class10/Code06_TreeMaxWidth.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/class10/Code07_GetSuccessorNode.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/class10/Code08_PaperFolding.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/class10/TreeNode.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/class12/Code01_IsCBT.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/class12/Code02_IsBST.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/class12/Code03_IsBalanced.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/class12/Code04_IsFull.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/class12/Code05_MaxSunBSTSize.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/class12/Code06_MaxDistance.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/class13/Code01_IsCBT.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/class13/Code02_LowestAncestor.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/class13/Code03_MaxHappy.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/class13/Code04_MaxSubSBTRoot.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/class13/Code05_LowestLexicography.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/class14/Code04_BestArrange.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/class35/Code01_AVLTreeMap.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/class36/Code01_SizeBalanceTreeMap.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../README.md" beforeDir="false" afterPath="$PROJECT_DIR$/../README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -18,6 +49,9 @@
         <option value="Class" />
       </list>
     </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
   <component name="GitSEFilterConfiguration">
     <file-type-list>
@@ -47,6 +81,7 @@
     <option name="selectedTabId" value="ProjectErrors" />
   </component>
   <component name="ProjectId" id="29WD9l6ioxw4w9LcPBOw5dmIIgJ" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -55,16 +90,17 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="settings.editor.selected.configurable" value="editor.preferences.fonts.default" />
   </component>
-  <component name="RunManager" selected="Application.QuickSort">
-    <configuration name="Code03_RadixSort" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="class08.Code03_RadixSort" />
+  <component name="RunManager" selected="Application.Code05_LowestLexicography">
+    <configuration name="Code01_AVLTreeMap" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="class35.Code01_AVLTreeMap" />
       <module name="体系学习班" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="class08.*" />
+          <option name="PATTERN" value="class35.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -72,12 +108,12 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="HeapSort" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="test.sort.HeapSort" />
+    <configuration name="Code01_IsCBT (1)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="class13.Code01_IsCBT" />
       <module name="体系学习班" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="test.sort.*" />
+          <option name="PATTERN" value="class13.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -85,12 +121,12 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="MergeSort" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="test.sort.MergeSort" />
+    <configuration name="Code05_LowestLexicography" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="class13.Code05_LowestLexicography" />
       <module name="体系学习班" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="test.sort.*" />
+          <option name="PATTERN" value="class13.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -98,12 +134,12 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="QuickSort" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="test.sort.QuickSort" />
+    <configuration name="Code05_MaxSunBSTSize" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="class12.Code05_MaxSunBSTSize" />
       <module name="体系学习班" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="test.sort.*" />
+          <option name="PATTERN" value="class12.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -111,20 +147,26 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="SortCompare" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="SortCompare" />
+    <configuration name="Code06_MaxDistance" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="class12.Code06_MaxDistance" />
       <module name="体系学习班" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="class12.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.QuickSort" />
-        <item itemvalue="Application.MergeSort" />
-        <item itemvalue="Application.HeapSort" />
-        <item itemvalue="Application.SortCompare" />
-        <item itemvalue="Application.Code03_RadixSort" />
+        <item itemvalue="Application.Code05_LowestLexicography" />
+        <item itemvalue="Application.Code01_IsCBT (1)" />
+        <item itemvalue="Application.Code01_AVLTreeMap" />
+        <item itemvalue="Application.Code06_MaxDistance" />
+        <item itemvalue="Application.Code05_MaxSunBSTSize" />
       </list>
     </recent_temporary>
   </component>
@@ -161,11 +203,34 @@
       <workItem from="1654358400338" duration="183000" />
       <workItem from="1654424890349" duration="11000" />
       <workItem from="1654438001178" duration="3390000" />
+      <workItem from="1654528963445" duration="5713000" />
+      <workItem from="1654600463396" duration="33000" />
+      <workItem from="1654696700471" duration="887000" />
+      <workItem from="1655376430633" duration="4138000" />
+      <workItem from="1655383211039" duration="20000" />
+      <workItem from="1655901334569" duration="3374000" />
+      <workItem from="1655907117178" duration="3100000" />
+      <workItem from="1656313093306" duration="3565000" />
+      <workItem from="1656389613573" duration="7313000" />
+      <workItem from="1656491610320" duration="7852000" />
+      <workItem from="1656595275681" duration="3075000" />
+      <workItem from="1656728881741" duration="11947000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
